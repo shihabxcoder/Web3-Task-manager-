@@ -6,6 +6,7 @@
     <title>Web3 Task Manager</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 </head>
 <body>
     <header>
@@ -36,18 +37,7 @@
         </div>
     </main>
 
-    <button class="floating-btn" onclick="toggleWalletSheet()">Connect Wallet</button>
-
-    <div class="overlay" id="overlay" onclick="toggleWalletSheet()"></div>
-    <div class="bottom-sheet" id="wallet-sheet">
-        <h3 class="sheet-title">Select Wallet</h3>
-        <div class="sheet-content">
-            <button class="wallet-btn">TON Space</button>
-            <button class="wallet-btn">Tonkeeper</button>
-            <button class="wallet-btn">MyTonWallet</button>
-            <button class="wallet-btn">OpenMask</button>
-        </div>
-    </div>
+    <div id="ton-connect" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
 
     <script src="../util/app.js"></script>
 </body>
