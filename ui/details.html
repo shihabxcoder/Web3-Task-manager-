@@ -10,20 +10,20 @@
 <body>
     <div class="details-container">
         <h2 id="project-title" class="details-title">Loading...</h2>
-        <p class="details-desc">Complete the tasks below to earn points.</p>
+        <p class="details-desc">Complete the tasks below to earn XP points.</p>
         
         <div class="task-list">
             <div class="task-item">
-                <span>Daily Check-in</span>
-                <button id="task_1" class="task-btn" onclick="completeTask('task_1')">Claim</button>
+                <span>Daily Check-in (+10 XP)</span>
+                <button id="task_1" class="task-btn" onclick="executeTask('task_1', 'https://t.me/your_airdrop_bot_link', 10)">Claim</button>
             </div>
             <div class="task-item">
-                <span>Join Telegram Channel</span>
-                <button id="task_2" class="task-btn" onclick="completeTask('task_2')">Verify</button>
+                <span>Join Telegram Channel (+50 XP)</span>
+                <button id="task_2" class="task-btn" onclick="executeTask('task_2', 'https://t.me/telegram', 50)">Join</button>
             </div>
             <div class="task-item">
-                <span>Retweet Post</span>
-                <button id="task_3" class="task-btn" onclick="completeTask('task_3')">Do Task</button>
+                <span>Follow on X (Twitter) (+30 XP)</span>
+                <button id="task_3" class="task-btn" onclick="executeTask('task_3', 'https://twitter.com', 30)">Follow</button>
             </div>
         </div>
     </div>
