@@ -2,6 +2,21 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.ready();
 
+// --- TON Connect UI ইনিশিয়ালাইজ ---
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://web3-task-manager.vercel.app/ui/tonconnect-manifest.json',
+    buttonRootId: 'ton-connect'
+});
+
+// কানেকশন স্ট্যাটাস চেক করা
+tonConnectUI.onStatusChange(wallet => {
+    if (wallet) {
+        // ওয়ালেট কানেক্ট হলে টেলিগ্রাম ইউজারকে একটি নোটিফিকেশন দেখাবে
+        tg.showAlert(`Wallet Connected Successfully!\nAddress: ${wallet.account.address.substring(0, 6)}...${wallet.account.address.substring(wallet.account.address.length - 4)}`);
+    }
+});
+
+// --- টাইমার লজিক ---
 function startTimer(id, hours, minutes, seconds) {
     let element = document.getElementById(id);
     if (!element) return;
@@ -25,19 +40,10 @@ if (window.location.pathname.includes('index.html') || window.location.pathname 
     };
 }
 
+// --- ন্যাভিগেশন লজিক ---
 function goToDetailsPage(projectId) {
     localStorage.setItem('currentProject', projectId);
     window.location.href = 'details.html';
-}
-
-function toggleWalletSheet() {
-    let sheet = document.getElementById('wallet-sheet');
-    let overlay = document.getElementById('overlay');
-    
-    if (sheet && overlay) {
-        sheet.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
 }
 
 if (window.location.pathname.includes('details.html')) {
