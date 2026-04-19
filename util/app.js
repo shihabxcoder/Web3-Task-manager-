@@ -134,4 +134,33 @@ window.onload = () => {
             });
         }
     }
+};        if (tg && tg.CloudStorage) {
+            tg.CloudStorage.getItems(taskIds, (error, values) => {
+                if (!error) {
+                    taskIds.forEach(id => {
+                        if (values[id] === "completed") {
+                            let btn = document.getElementById(id);
+                            if (btn) {
+                                btn.innerText = "Completed";
+                                btn.style.backgroundColor = "#28a745";
+                                btn.disabled = true;
+                            }
+                        }
+                    });
+                }
+            });
+        } else {
+            // ব্রাউজারে টেস্ট করার জন্য
+            taskIds.forEach(id => {
+                if (localStorage.getItem(id) === "completed") {
+                    let btn = document.getElementById(id);
+                    if (btn) {
+                        btn.innerText = "Completed";
+                        btn.style.backgroundColor = "#28a745";
+                        btn.disabled = true;
+                    }
+                }
+            });
+        }
+    }
 };
