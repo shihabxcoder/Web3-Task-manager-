@@ -137,3 +137,21 @@ header h1 {
     border-radius: 6px; 
     cursor: pointer;
 }
+
+    /* ... আপনার আগের সব CSS এখানে থাকবে ... */
+
+.points-badge {
+    text-align: center;
+    background-color: #2481cc;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+header {
+    text-align: center;
+}
